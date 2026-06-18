@@ -1,120 +1,69 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
   background: #0f0f0f;
   color: white;
+  font-family: Arial, sans-serif;
 }
+
+/* HERO FULL SCREEN */
 .hero {
-  height: 100vh;
-  width: 100%;
   position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
-/* FULL SCREEN IMAGE */
+/* SLIDER */
 .hero-slider {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
 }
 
-.hero-slider img {
+.slide {
+  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
+
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+/* active slide */
+.slide.active {
+  opacity: 1;
+}
+
+/* DARK OVERLAY (خیلی مهم برای لوکس شدن) */
+.hero::after {
+  content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  display: none;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
 }
 
-.hero-slider img.active {
-  display: block;
-}
-
-/* TEXT ON IMAGE */
-.name {
+/* TEXT */
+.hero-text {
   position: relative;
   z-index: 2;
-  font-size: clamp(18px, 5vw, 28px);
-  letter-spacing: 2px;
   text-align: center;
 }
 
-.tagline {
-  position: relative;
-  z-index: 2;
-  opacity: 0.7;
-}
-/* NAME */
 .name {
   font-size: clamp(18px, 5vw, 28px);
-  text-align: center;
   letter-spacing: 2px;
   margin: 0;
 }
 
-/* TAGLINE */
 .tagline {
   font-size: clamp(12px, 3.5vw, 16px);
-  text-align: center;
-  opacity: 0.6;
+  opacity: 0.7;
   margin-top: 8px;
-}
-
-/* SECTIONS */
-section {
-  padding: 70px 20px;
-  text-align: center;
-}
-
-/* HEADINGS */
-h2 {
-  font-size: clamp(16px, 4vw, 22px);
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-}
-
-/* TEXT */
-p {
-  font-size: clamp(13px, 3.8vw, 16px);
-  line-height: 1.8;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* PORTFOLIO GRID */
-.grid {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: center;
-}
-
-/* CARDS */
-.card {
-  width: 90%;
-  max-width: 300px;
-  padding: 35px;
-  border: 1px solid #333;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s;
-}
-
-.card:hover {
-  background: white;
-  color: black;
-}
-
-/* CONTACT */
-.contact p {
-  margin: 5px 0;
 }
