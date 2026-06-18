@@ -224,3 +224,45 @@ body {
   margin: 15px auto; /* وسط چین + فاصله */
   opacity: 0.8;
 }
+
+.hero {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.hero-text {
+  text-align: center;
+  z-index: 2;
+}
+
+/* 🔥 قفل شدن اسم */
+.name {
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  transform: none !important;
+  animation: none !important;
+
+  display: block !important;
+}
+
+/* خط بینشون */
+.divider {
+  width: 1px;
+  height: 40px;
+  background: white;
+  margin: 15px auto;
+  opacity: 0.8;
+}
+
+/* tagline */
+.tagline {
+  opacity: 1 !important;
+}
