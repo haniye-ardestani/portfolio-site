@@ -99,6 +99,25 @@ body {
 
   max-width: 600px;
   margin: 0 auto;
+  .about {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* کادر دور متن */
+.about-text {
+  max-width: 600px;
+
+  border: 1px solid #333;
+  padding: 25px;
+
+  font-size: 14px;
+  line-height: 1.8;
+
+  text-align: justify;
+  text-justify: inter-word;
+}
 
   padding: 0 10px;
 }
