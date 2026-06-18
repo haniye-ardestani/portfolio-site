@@ -1,58 +1,143 @@
-(function () {
-  const root = document.documentElement;
-  const toggleBtn = document.getElementById('langToggle');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
 
-  // Elements with data-fa / data-en pairs (text content swap)
-  const textNodes = document.querySelectorAll('[data-fa][data-en]');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  function applyLanguage(lang) {
-    root.lang = lang === 'fa' ? 'fa' : 'en';
-    root.dir = lang === 'fa' ? 'rtl' : 'ltr';
+body {
+  font-family: "Inter", sans-serif;
+  background: #0b0b0b;
+  color: #f5f5f5;
+  overflow-x: hidden;
+}
 
-    textNodes.forEach((el) => {
-      const val = lang === 'fa' ? el.getAttribute('data-fa') : el.getAttribute('data-en');
-      // Use innerHTML since some strings contain a safe &amp; entity
-      el.innerHTML = val;
-    });
+/* noise texture */
+.noise {
+  position: fixed;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.05;
+  pointer-events: none;
+}
 
-    document.title = lang === 'fa'
-      ? 'سارا احمدی — طراح گرافیک'
-      : 'Sara Ahmadi — Graphic Designer';
+/* HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 30px 60px;
+  display: flex;
+  justify-content: space-between;
+  backdrop-filter: blur(20px);
+  background: rgba(0,0,0,0.2);
+  z-index: 10;
+}
 
-    localStorage.setItem('portfolio-lang', lang);
-  }
+.logo {
+  font-size: 12px;
+  letter-spacing: 4px;
+}
 
-  toggleBtn.addEventListener('click', () => {
-    const current = root.dir === 'rtl' ? 'fa' : 'en';
-    const next = current === 'fa' ? 'en' : 'fa';
-    applyLanguage(next);
-  });
+nav a {
+  margin-left: 25px;
+  font-size: 13px;
+  color: #aaa;
+  text-decoration: none;
+  transition: 0.3s;
+}
 
-  // Restore saved preference, default to fa
-  const saved = (function () {
-    try { return localStorage.getItem('portfolio-lang'); } catch (e) { return null; }
-  })();
-  if (saved === 'en') applyLanguage('en');
+nav a:hover {
+  color: white;
+}
 
-  // Subtle reveal-on-scroll for section heads and work items
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const revealEls = document.querySelectorAll('.work-item, .service-row, .journal-item, .section-head');
-    revealEls.forEach((el) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(16px)';
-      el.style.transition = 'opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1)';
-    });
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 80px;
+}
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
+.sub {
+  font-size: 12px;
+  letter-spacing: 6px;
+  opacity: 0.5;
+  margin-bottom: 20px;
+}
 
-    revealEls.forEach((el) => observer.observe(el));
-  }
-})();
+.hero h1 {
+  font-size: 56px;
+  font-weight: 300;
+  max-width: 800px;
+  line-height: 1.2;
+}
+
+/* WORK */
+.work {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 120px 80px;
+}
+
+.card {
+  height: 380px;
+  background: #121212;
+  border: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  transition: 0.6s ease;
+  overflow: hidden;
+}
+
+.card span {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 13px;
+  color: #aaa;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* ABOUT + CONTACT */
+.about, .contact {
+  padding: 120px 80px;
+  max-width: 700px;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+p {
+  color: #aaa;
+  line-height: 1.8;
+}
+
+/* FOOTER */
+footer {
+  padding: 60px;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.4;
+}
+
+/* reveal animation */
+.card, .about, .contact {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
