@@ -1,27 +1,53 @@
-// smooth scroll
-document.documentElement.style.scrollBehavior = "smooth";
+@font-face {
+  font-family:'Kalame';
+  src:url('fonts/Kalame.ttf');
+}
 
-// HERO parallax effect
-const heroText = document.querySelector(".hero h1");
+body{
+  margin:0;
+  background:#0b0b0b;
+  color:#fff;
+  font-family:'Helvetica','Kalame',sans-serif;
+  letter-spacing:0.6px;
+}
 
-window.addEventListener("scroll", () => {
-  const y = window.scrollY;
+header{
+  position:fixed;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:25px 40px;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(12px);
+}
 
-  heroText.style.transform = `translateY(${y * 0.2}px)`;
-  heroText.style.opacity = 1 - y / 600;
-});
+.logo{
+  letter-spacing:5px;
+  font-size:13px;
+}
 
-// reveal on scroll
-const items = document.querySelectorAll(".card, .about, .contact");
+nav a{
+  color:#fff;
+  margin-left:20px;
+  text-decoration:none;
+  letter-spacing:3px;
+  font-size:11px;
+}
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
-  });
-}, {
-  threshold: 0.15
-});
+.hero{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:44px;
+  letter-spacing:7px;
+}
 
-items.forEach(item => observer.observe(item));
+.sec{
+  padding:140px 40px;
+  text-align:center;
+}
+
+.dark{
+  background:#151515;
+}
