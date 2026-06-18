@@ -179,3 +179,36 @@ body {
   position: relative !important;
   z-index: 10 !important;
 }
+.contact {
+  padding: 100px 20px 60px 20px; /* 👈 فاصله از بخش‌های بالا */
+  text-align: center;
+}
+
+/* تیتر CONNECT */
+.contact h2 {
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+/* لینک‌ها */
+.contact-links {
+  display: flex;
+  flex-direction: column; /* زیر هم */
+  align-items: center;     /* وسط چین */
+  gap: 15px;               /* فاصله بین لینک‌ها */
+}
+
+/* خود لینک‌ها */
+.contact-links a {
+  font-size: 14px;  /* کوچیک‌تر */
+  text-decoration: none;
+  color: white;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+/* hover */
+.contact-links a:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
