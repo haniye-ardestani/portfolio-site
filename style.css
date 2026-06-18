@@ -137,3 +137,28 @@ body {
 
   margin: 0 auto 25px auto !important;
 }
+.about {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* کادر دور متن */
+.about-box {
+  max-width: 650px;
+  margin: 0 auto;
+
+  padding: 25px 20px;
+
+  border: 1px solid #333;
+
+  text-align: justify;
+}
+
+/* متن داخل */
+.about-text {
+  font-size: 14px;
+  line-height: 1.8;
+
+  text-align: justify;
+  text-justify: inter-word;
+}
