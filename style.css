@@ -212,3 +212,15 @@ body {
   opacity: 1;
   transform: scale(1.05);
 }
+
+.hero-text {
+  text-align: center;
+}
+
+.divider {
+  width: 1px;
+  height: 40px;   /* طول خط */
+  background: white;
+  margin: 15px auto; /* وسط چین + فاصله */
+  opacity: 0.8;
+}
