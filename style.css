@@ -61,6 +61,11 @@ body {
   letter-spacing: 2px;
   margin: 0;
 }
+.name {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
 
 .tagline {
   font-size: clamp(10px, 3.5vw, 10px);
