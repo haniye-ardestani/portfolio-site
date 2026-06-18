@@ -167,3 +167,15 @@ body {
   text-align: justify;
   text-justify: inter-word;
 }
+
+.name {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+
+  transform: none !important;
+  animation: none !important;
+
+  position: relative !important;
+  z-index: 10 !important;
+}
