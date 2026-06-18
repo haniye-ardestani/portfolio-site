@@ -121,3 +121,12 @@ body {
 
   padding: 0 10px;
 }
+
+.about h2,
+.portfolio h2,
+.contact h2 {
+  text-align: center;
+  font-size: clamp(16px, 4vw, 22px);
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
